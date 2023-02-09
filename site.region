@@ -1,72 +1,66 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <title>Windows</title>
-  <link rel="stylesheet" href="styles/style.css">
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+        />
 
-</head>
-<body>
-<!-- partial:index.partial.html -->
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.7.1/themes/base/jquery-ui.css" type="text/css" />
-<div class="startbar">
-  <div id="startbutton" class="startbutton-off">
-    <b>Start</b>
-  </div>
-  <div class="time">
-  </div>
-</div>
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="css/style.css" />
 
-<div id="menu">
-  <div class="sidebar"></div>
-  <div class="headline"><b>Windows</b> 98
-  </div>
-  <ul class="menu-content">
-    <li class="item more" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990247/directory_program_group_small_fqw8rr.ico">Programs
-      <ul class="dropdown-content">
-        <li class="dropdown-item" data-icon="https://res.cloudinary.com/penry/image/upload//w_65,h_65,c_lpad/v1474990266/msie2_ks3wek.png">Internet Explorer</li>
-        <li class="dropdown-item" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990270/notepad_file_kf9wqx.ico">Notepad</li>
-        
-      </ul>
-    </li>
-    <li class="item more" data-icon="https://res.cloudinary.com/penry/image/upload/w_65,h_65,c_lpad/v1474990246/directory_pictures_ualddt.png">Photos
-      <ul class="dropdown-content">
-        <li class="dropdown-item launch" data-launch="screenshot1" data-title="screenshot1.jpg" data-icon="https://res.cloudinary.com/penry/image/upload/q_100/v1474990272/pictures_bt9tfg.ico" data-url="https://i.ytimg.com/vi/0blP8k_wDzE/maxresdefault.jpg">Screenshot1.jpg
-        </li>
-        
-        <li class="dropdown-item launch" data-launch="screenshot2" data-title="screenshot2.jpg" data-icon="https://i.ytimg.com/vi/0VqvCa_XYsU/maxresdefault.jpg"  data-url="https://i.ytimg.com/vi/0VqvCa_XYsU/maxresdefault.jpg">Screenshot2.jpg</li>
-      </ul>
-    </li>
-    <li class="item more" data-icon="https://win98icons.alexmeub.com/icons/png/package-1.png">Applications
-    <ul class="dropdown-content">
-      <li class="dropdown-item launch" data-launch="420" data-title="Paint" data-icon="https://win98icons.alexmeub.com/icons/png/paint_old-0.png" data-url="paint/index.html">Paint</li>
-      </ul>
-    </li>
-    <li class="item more" data-icon="https://win98icons.alexmeub.com/icons/png/mshearts.png">Games
+        <!-- js -->
+        <script src="scripts/"></script>
 
-      <ul class="dropdown-content">
-        <li class="dropdown-item launch" data-launch="SpaceInvaders" data-title="Space Invaders" data-icon="https://win98icons.alexmeub.com/icons/png/shell_window2.png" data-url="games/spaceship.html">Space Invaders</li>
-        <li class="dropdown-item launch" data-launch="Pokemon" data-title="Pokemon" data-icon="https://win98icons.alexmeub.com/icons/png/shell_window2.png" data-url="games/pokemon.html">Pokemon</li>
-        <li class="dropdown-item launch" data-launch="Enduro" data-title="Enduro" data-icon="https://win98icons.alexmeub.com/icons/png/shell_window2.png" data-url="games/enduro.html">Enduro</li>
-        <li class="dropdown-item launch" data-launch="Minesweeper" data-title="Minesweeper" data-icon="https://win98icons.alexmeub.com/icons/png/minesweeper-0.png" data-url="games/minesweeper.html">Minesweeper</li>
-      
-      </ul>
-    </li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/q_100/v1474990280/settings_gear_zxd7tf.ico">Settings</li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/q_100/v1474990279/search_file_2_yy4muv.ico">Find</li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990254/help_book_small_ra0uhc.ico">Help</li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990231/application_hourglass_small_yyhy5z.ico">Run</li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990258/key_win_anpnfo.ico">Log off</li>
-    <li class="item" data-icon="https://res.cloudinary.com/penry/image/upload/v1474990281/shut_down_normal_t24or4.ico">Shutdown</li>
-  </ul>
-</div>
+        <link rel="icon" type="image/png" href="assets/windows_logo.png" />
 
+        <title>Windows 98</title>
+    </head>
+    <body onload="moveBar()">
+        <div id="progressdiv">
+            <div id="progressbar"></div>
+        </div>
 
-<div class="desktop">
- </div>
-<!-- partial -->
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js'></script><script  src="scripts/script.js"></script>
+        <div id="login" class="login container">
+            <div class="logintitle">
+                <b>Welcome</b>
+            </div>
+            <div class="row align-items-center text-center">
+                <div class="col col-sm-3">
+                    <img class="keyico" src="imgs/windows_key.png" />
+                </div>
+                <div class="col col-lg-6 loginbody">
+                    <p>Type a username and password to log in.</p>
+                    <u>U</u>sername
+                    <input type="text" value="João Pires" /><br />
+                    <br /><u>P</u>assword
+                    <input type="password" value="aaaaaaaaaa" /><br />
+                </div>
+                <div class="col col-sm-3 loginbtns text-center">
+                    <a class="btn px-4 loginbtn" href="windows.html"> Ok</a><br/>
+                    <button class="btn loginbtn">Cancel</button>
+                </div>
+            </div>
+        </div>
 
-</body>
+        <!-- jQuery and Bootstrap Bundle (includes Popper) -->
+        <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"
+        ></script>
+    </body>
 </html>
