@@ -1,4 +1,75 @@
-personal website! As you can see this is Windows 98!
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OmariHarebin.exe</title>
+       <link rel="stylesheet" href="https://unpkg.com/98.css" />
+    <link rel="stylesheet" href="styles/my-root.css" />
+    <link rel="stylesheet" href="styles/style.css" />
+    </head>
+    <body>
+       <div class="container">
+      <a id="risorse" href="" class="container-sezioni">
+        <img src="assets/risorse.ico" alt="" />
+        <p>My Computer</p>
+      </a>
+      <a id="projects" href="" class="container-sezioni">
+        <img src="assets/projects.ico" alt="" />
+        <p>My Projects</p>
+      </a>
+      <a id="cmd" href="" class="container-sezioni">
+        <img src="assets/console.ico" alt="" />
+        <p>Command Prompt</p>
+      </a>
+      <a id="cestino" href="" class="container-sezioni">
+        <img src="assets/cestino.ico" alt="" />
+        <p>Recycle Bin</p>
+      </a>
+      <a id="chrome" href="" class="container-sezioni chrome">
+        <img id="imgChrome" src="assets/chrome.png" alt="" />
+        <p id="parChrome">Google Chrome</p>
+      </a>
+      <a id="social" href="" class="container-sezioni">
+        <img src="assets/insta.png" alt="" />
+        <p>My Social</p>
+      </a>
+    </div>
+
+    <!-- Modali -->
+
+    <!-- Modal #1 -->
+    <div id="modale1" class="modal-content">
+      <div id="risorseModal" class="modal modallow window">
+        <div class="title-bar">
+          <div class="title-bar-text">My Computer</div>
+          <div class="title-bar-controls">
+            <button id="min1" aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button>
+            <button aria-label="Close" id="close1"></button>
+          </div>
+        </div>
+        <div class="mainoptions">
+          <div class="options">
+            <div class="colonninaoptions"></div>
+            <a><p>File</p></a>
+            <a><p>Edit</p></a>
+            <a><p>View</p></a>
+            <a><p>Go</p></a>
+            <a><p>Favorites</p></a>
+            <a><p>Help</p></a>
+          </div>
+          <div class="boxnero"><img src="assets/black.png" alt="" /></div>
+        </div>
+
+        <div class="window-body">
+          <div class="white-box mycomputer">
+
+<squarespace:block-field id="mycomputer" columns="4"/>
+
+            <h4>Hey Welcome to my Desktop Portfolio</h4>
+            <p>
+              This is my personal website! As you can see this is Windows 98!
               <strong>
                 <br />
                 Why this choice?</strong
