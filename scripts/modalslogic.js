@@ -354,7 +354,7 @@ let chromeButton = document.getElementById("chrome_button");
 let chromee = document.getElementById("chrome");
 let chromeModal = document.getElementById("chromeModal");
 let btn5 = document.getElementById("btn5");
-var audio = new Audio("audio/troll.mp3");
+var audio = new Audio("assets/troll.mp3");
 
 chromee.addEventListener("click", (evt) => {
   evt.preventDefault();
