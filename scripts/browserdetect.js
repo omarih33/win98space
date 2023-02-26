@@ -78,23 +78,23 @@ let imgChrome = document.getElementById("imgChrome");
 let parChrome = document.getElementById("parChrome");
 
 if (browserName === "Chrome") {
-  imgChrome.setAttribute("src", "img/chrome.png");
+  imgChrome.setAttribute("src", "assets/chrome.png");
   parChrome.innerHTML = browserName;
 }
 if (browserName === "Firefox") {
-  imgChrome.setAttribute("src", "img/firefox.png");
+  imgChrome.setAttribute("src", "assets/firefox.png");
   parChrome.innerHTML = browserName;
 }
 if (browserName === "Microsoft Edge") {
-  imgChrome.setAttribute("src", "img/edge.png");
+  imgChrome.setAttribute("src", "assets/edge.png");
   parChrome.innerHTML = browserName;
 }
 if (browserName === "Opera") {
-  imgChrome.setAttribute("src", "img/opera.png");
+  imgChrome.setAttribute("src", "assets/opera.png");
   parChrome.innerHTML = browserName;
 }
 if (browserName === "Safari") {
-  imgChrome.setAttribute("src", "img/safari.png");
+  imgChrome.setAttribute("src", "assets/safari.png");
   parChrome.innerHTML = browserName;
 }
 
