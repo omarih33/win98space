@@ -37,13 +37,14 @@
 
   function bindOpeners() {
     document.addEventListener('click', function (event) {
-      var target = event.target.closest('[data-window], [data-action], [data-theme]');
+      var target = event.target.closest('[data-window], [data-action], [data-theme], [data-page-url]');
       if (!target) return;
 
       if (target.classList.contains('desktop-icon')) {
         selectOnly(target, '.desktop-icon');
         clearTimeout(clickTimer);
         clickTimer = setTimeout(function () {}, 180);
+        event.preventDefault();
         return;
       }
 
@@ -51,16 +52,23 @@
     });
 
     document.addEventListener('dblclick', function (event) {
-      var target = event.target.closest('[data-window], [data-action]');
+      var target = event.target.closest('[data-window], [data-action], [data-page-url]');
       if (!target) return;
       activateTarget(event, target);
     });
   }
 
   function activateTarget(event, target) {
+    var pageUrl = target.getAttribute('data-page-url');
     var windowId = target.getAttribute('data-window');
     var action = target.getAttribute('data-action');
     var theme = target.getAttribute('data-theme');
+
+    if (pageUrl) {
+      event.preventDefault();
+      window.location.href = pageUrl;
+      return;
+    }
 
     if (windowId) {
       event.preventDefault();
