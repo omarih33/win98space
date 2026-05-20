@@ -15,15 +15,7 @@
           <span>Welcome.exe</span>
         </button>
 
-        <button class="desktop-icon" type="button" data-window="content-window">
-          <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
-          <span>Website.exe</span>
-        </button>
-
-        <button class="desktop-icon" type="button" data-window="about-window">
-          <img class="desktop-icon-img" src="/assets/icons/win98-document.svg" alt="">
-          <span>About.txt</span>
-        </button>
+        <squarespace:navigation navigationId="siteNav" template="desktop-icons" />
 
         <button class="desktop-icon" type="button" data-window="blog-window">
           <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
@@ -242,7 +234,8 @@
         <div class="window-body window-content help-content">
           <h3>How to use this site</h3>
           <ul>
-            <li>Double-click icons to open windows.</li>
+            <li>New pages in Site Navigation appear as desktop icons.</li>
+            <li>Double-click icons to open windows or pages.</li>
             <li>Drag title bars to move windows.</li>
             <li>Drag the bottom-right corner to resize windows.</li>
             <li>Use Blog (D:) and Gallery (E:) as editable Squarespace content folders.</li>
