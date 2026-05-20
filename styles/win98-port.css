@@ -31,6 +31,9 @@
 .computer-window { top: 88px; left: 250px; width: 580px; height: 390px; }
 .control-panel-window { top: 140px; left: 280px; width: 420px; height: 300px; }
 .help-window { top: 160px; left: 320px; width: 420px; height: 300px; }
+.windows98-body .window { min-width: 260px; min-height: 170px; }
+.windows98-body .window.maximized .resize-handle { display: none; }
+.resize-handle { position: absolute; right: 3px; bottom: 3px; width: 14px; height: 14px; cursor: nwse-resize; background: repeating-linear-gradient(135deg, transparent 0 3px, #808080 3px 4px, #fff 4px 5px); z-index: 5; }
 .windows98-body .title-bar { background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light)); }
 .windows98-body .title-bar.inactive-title-bar { background: linear-gradient(90deg, #808080, #b5b5b5); }
 .dialog-row { display: flex; gap: 18px; align-items: flex-start; }
@@ -72,4 +75,5 @@
   .welcome-window, .content-window, .about-window, .computer-window, .control-panel-window, .help-window { width: 100%; height: auto; }
   .control-panel-grid, .computer-drives { grid-template-columns: 1fr; }
   #start-menu .item.folder > .menu-content { left: 120px; }
+  .resize-handle { display: none; }
 }
