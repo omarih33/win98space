@@ -3,6 +3,7 @@
   var openWindows = {};
   var zIndex = 100;
   var dragState = null;
+  var clickTimer = null;
 
   function ready(callback) {
     if (document.readyState === 'loading') {
@@ -13,11 +14,11 @@
   }
 
   ready(function () {
-    var contentWindow = document.getElementById('content-window');
-    if (contentWindow) {
-      showWindow(contentWindow);
-      openWindows[contentWindow.id] = true;
-      bringToFront(contentWindow);
+    var welcomeWindow = document.getElementById('welcome-window');
+    if (welcomeWindow) {
+      showWindow(welcomeWindow);
+      openWindows[welcomeWindow.id] = true;
+      bringToFront(welcomeWindow);
     }
 
     bindOpeners();
@@ -25,6 +26,7 @@
     bindStartMenu();
     bindDragging();
     bindBsod();
+    bindThemes();
     updateClock();
     setInterval(updateClock, 1000);
     updateTaskbar();
@@ -32,30 +34,46 @@
 
   function bindOpeners() {
     document.addEventListener('click', function (event) {
-      var target = event.target.closest('[data-window], [data-action]');
+      var target = event.target.closest('[data-window], [data-action], [data-theme]');
       if (!target) return;
 
-      var windowId = target.getAttribute('data-window');
-      var action = target.getAttribute('data-action');
-
-      if (windowId) {
-        event.preventDefault();
-        openWindow(windowId);
-        closeStartMenu();
+      if (target.classList.contains('desktop-icon')) {
+        selectOnly(target, '.desktop-icon');
+        clearTimeout(clickTimer);
+        clickTimer = setTimeout(function () {}, 180);
+        return;
       }
 
-      if (action) {
-        event.preventDefault();
-        runAction(action);
-      }
+      activateTarget(event, target);
     });
 
     document.addEventListener('dblclick', function (event) {
-      var target = event.target.closest('[data-window]');
+      var target = event.target.closest('[data-window], [data-action]');
       if (!target) return;
-      event.preventDefault();
-      openWindow(target.getAttribute('data-window'));
+      activateTarget(event, target);
     });
+  }
+
+  function activateTarget(event, target) {
+    var windowId = target.getAttribute('data-window');
+    var action = target.getAttribute('data-action');
+    var theme = target.getAttribute('data-theme');
+
+    if (windowId) {
+      event.preventDefault();
+      openWindow(windowId);
+      closeStartMenu();
+    }
+
+    if (action) {
+      event.preventDefault();
+      runAction(action, target);
+    }
+
+    if (theme) {
+      event.preventDefault();
+      setTheme(theme);
+    }
   }
 
   function bindControls() {
@@ -141,12 +159,29 @@
     if (bsod) bsod.addEventListener('click', hideBsod);
   }
 
-  function runAction(action) {
+  function bindThemes() {
+    var savedTheme = window.localStorage ? window.localStorage.getItem('win98space-theme') : null;
+    if (savedTheme) setTheme(savedTheme, true);
+  }
+
+  function runAction(action, target) {
     if (action === 'recycle-bin') alert('The Recycle Bin is empty.');
     if (action === 'bsod') {
       showBsod();
       closeStartMenu();
     }
+    if (action === 'close-parent') {
+      var win = target.closest('.window');
+      if (win) closeWindow(win.id);
+    }
+  }
+
+  function selectOnly(target, selector) {
+    var items = document.querySelectorAll(selector);
+    Array.prototype.forEach.call(items, function (item) {
+      item.classList.remove('selected');
+    });
+    target.classList.add('selected');
   }
 
   function showWindow(win) {
@@ -206,15 +241,19 @@
     var windows = document.querySelectorAll('.window');
     Array.prototype.forEach.call(windows, function (item) {
       item.classList.remove('active');
+      var title = item.querySelector('.title-bar');
+      if (title) title.classList.add('inactive-title-bar');
     });
 
     win.classList.add('active');
+    var activeTitle = win.querySelector('.title-bar');
+    if (activeTitle) activeTitle.classList.remove('inactive-title-bar');
     updateTaskbar(win.id);
   }
 
   function getTitle(win) {
     var title = win.querySelector('.title-bar-text, .window-title');
-    return title ? title.textContent.replace(/^[▣▤▥]\s*/, '') : win.id;
+    return title ? title.textContent.replace(/^[★▣▤▥⚙?]\s*/, '') : win.id;
   }
 
   function updateTaskbar(activeId) {
@@ -271,8 +310,10 @@
     var now = new Date();
     var time = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
     var clock = document.getElementById('clock');
+    var timeDisplay = document.getElementById('time-display');
     var status = document.getElementById('status-time');
-    if (clock) clock.textContent = time;
+    if (clock && !timeDisplay) clock.textContent = time;
+    if (timeDisplay) timeDisplay.textContent = time;
     if (status) status.textContent = time;
   }
 
@@ -289,6 +330,13 @@
     if (!bsod || bsod.hidden) return;
     bsod.hidden = true;
     bsod.style.display = 'none';
+  }
+
+  function setTheme(theme, skipSave) {
+    var body = document.body;
+    body.classList.remove('theme-night', 'theme-rose', 'theme-galaxy');
+    if (theme && theme !== 'default') body.classList.add('theme-' + theme);
+    if (!skipSave && window.localStorage) window.localStorage.setItem('win98space-theme', theme || 'default');
   }
 
   window.openWindow = openWindow;
