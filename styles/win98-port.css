@@ -12,12 +12,12 @@
 .windows98-body.theme-rose { --desktop-bg: #9f6f6f; --win-blue: #8b3d3d; --win-blue-light: #d0a610; }
 .windows98-body.theme-galaxy { --desktop-bg: #16123b; --win-blue: #000055; --win-blue-light: #b46caa; }
 .windows98-desktop { background: radial-gradient(circle at 65% 25%, rgba(255,255,255,.08), transparent 20%), var(--desktop-bg); }
-.desktop-icons-container { grid-template-columns: 86px; align-content: start; }
+.desktop-icons-container { grid-template-columns: 78px; align-content: start; gap: 12px; }
 .recycle-container { position: absolute; right: 22px; bottom: 24px; z-index: 20; }
-.windows98-body .desktop-icon { line-height: 1.1; user-select: none; }
+.windows98-body .desktop-icon { width: 78px; min-height: 64px; line-height: 1.1; user-select: none; padding: 3px 2px; margin: 0; border: 1px solid transparent; box-shadow: none; }
 .windows98-body .desktop-icon.selected,
-.windows98-body .desktop-icon:focus-visible { background: rgba(0,0,128,.5); border-color: rgba(255,255,255,.7); outline: 1px dotted #fff; }
-.desktop-icon-img { width: 32px; height: 32px; display: block; margin: 0 auto 5px; image-rendering: pixelated; }
+.windows98-body .desktop-icon:focus-visible { background: rgba(0,0,128,.55); border-color: rgba(255,255,255,.55); outline: 1px dotted #fff; }
+.desktop-icon-img { width: 32px; height: 32px; display: block; margin: 0 auto 4px; image-rendering: pixelated; }
 .title-icon { width: 16px; height: 16px; margin-right: 4px; vertical-align: -3px; image-rendering: pixelated; }
 .dialog-icon-img { width: 44px; height: 44px; flex: 0 0 auto; image-rendering: pixelated; }
 .desktop-icon-glyph--welcome { color: #b36b00; }
@@ -51,16 +51,21 @@
 .start-mark { display: inline-grid; place-items: center; width: 16px; height: 16px; color: #fff; background: var(--win-blue); }
 #clock.time { width: auto; min-width: 116px; gap: 8px; }
 .tray-dot { color: #008000; }
-#start-menu { width: 236px; }
-#start-menu .menu-content { margin-left: 25px; }
-#start-menu > .menu-content { width: 209px; }
-#start-menu .item { position: relative; min-height: 28px; display: flex; align-items: center; gap: 7px; padding: 6px 8px; }
-#start-menu .item.folder::after { content: '\25B6'; margin-left: auto; font-size: 10px; }
+#start-menu { width: 205px; bottom: 40px; left: 3px; background: #bfbfbf; border: 1px solid; border-top-color: #dfdfdf; border-left-color: #dfdfdf; border-right-color: #808080; border-bottom-color: #808080; box-shadow: 1px 1px 0 #000; padding: 1px; }
+#start-menu .menu-sidebar { position: absolute; left: 1px; top: 1px; bottom: 1px; width: 25px; background: linear-gradient(to bottom, var(--win-blue), var(--win-blue-light)); overflow: hidden; }
+#start-menu .menu-sidebar .headline { position: absolute; left: -34px; bottom: 42px; width: 100px; height: 22px; transform: rotate(270deg); color: #fff; font-size: 16px; line-height: 22px; white-space: nowrap; }
+#start-menu > .menu-content { width: 176px; margin: 0 0 0 26px; padding: 2px 0; list-style: none; }
+#start-menu .menu-content .menu-content { margin: 0; padding: 2px 0; list-style: none; }
+#start-menu .item { position: relative; min-height: 22px; display: flex; align-items: center; gap: 5px; padding: 3px 7px; line-height: 18px; white-space: nowrap; }
+#start-menu .item:hover { background: var(--win-blue); color: #fff; }
+#start-menu .item em { font-style: normal; text-decoration: underline; display: inline; }
+#start-menu .item.folder::after { content: '\25B6'; margin-left: auto; font-size: 9px; }
 .menu-icon { width: 18px; height: 18px; flex: 0 0 auto; image-rendering: pixelated; }
 .menu-glyph { width: 18px; height: 18px; flex: 0 0 auto; display: inline-grid; place-items: center; }
-#start-menu .item.folder > .menu-content { display: none; position: absolute; left: 185px; top: -4px; margin-left: 0; width: 190px; background: #bfbfbf; border: 1px solid; border-top-color: #dfdfdf; border-left-color: #dfdfdf; border-right-color: #808080; border-bottom-color: #808080; box-shadow: 1px 1px 0 0 #000; }
+#start-menu .item.folder > .menu-content { display: none; position: absolute; left: 174px; top: -3px; width: 184px; background: #bfbfbf; border: 1px solid; border-top-color: #dfdfdf; border-left-color: #dfdfdf; border-right-color: #808080; border-bottom-color: #808080; box-shadow: 1px 1px 0 0 #000; z-index: 1400; }
 #start-menu .item.folder:hover > .menu-content { display: block; }
 #start-menu .item.folder .item.folder > .menu-content { left: 170px; }
+#start-menu .divider { height: 1px; min-height: 0; margin: 4px 6px; padding: 0; border-top: 1px solid #808080; border-bottom: 1px solid #dfdfdf; }
 #taskbar-programs .program { max-width: 175px; }
 @media screen and (max-width: 760px) {
   .recycle-container { position: static; }
