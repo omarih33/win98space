@@ -11,12 +11,13 @@
 .windows98-body.theme-night { --desktop-bg: #0b1026; --win-blue: #050050; --win-blue-light: #6d39c7; }
 .windows98-body.theme-rose { --desktop-bg: #9f6f6f; --win-blue: #8b3d3d; --win-blue-light: #d0a610; }
 .windows98-body.theme-galaxy { --desktop-bg: #16123b; --win-blue: #000055; --win-blue-light: #b46caa; }
-.windows98-desktop { background: radial-gradient(circle at 65% 25%, rgba(255,255,255,.08), transparent 20%), var(--desktop-bg); }
+.windows98-desktop { min-height: calc(100vh - 40px); height: auto; background: radial-gradient(circle at 65% 25%, rgba(255,255,255,.08), transparent 20%), var(--desktop-bg); }
 .desktop-icons-container { grid-template-columns: 78px; align-content: start; gap: 12px; }
 .recycle-container { position: absolute; right: 22px; bottom: 24px; z-index: 20; }
-.windows98-body .desktop-icon { width: 78px; min-height: 64px; line-height: 1.1; user-select: none; padding: 3px 2px; margin: 0; border: 1px solid transparent; box-shadow: none; }
+.windows98-body .desktop-icon { width: 78px; min-height: 64px; line-height: 1.1; user-select: none; padding: 3px 2px; margin: 0; border: 1px solid transparent; box-shadow: none; text-decoration: none; color: #fff; }
 .windows98-body .desktop-icon.selected,
 .windows98-body .desktop-icon:focus-visible { background: rgba(0,0,128,.55); border-color: rgba(255,255,255,.55); outline: 1px dotted #fff; }
+.desktop-page-icon { cursor: default; }
 .desktop-icon-img { width: 32px; height: 32px; display: block; margin: 0 auto 4px; image-rendering: pixelated; }
 .title-icon { width: 16px; height: 16px; margin-right: 4px; vertical-align: -3px; image-rendering: pixelated; }
 .dialog-icon-img { width: 44px; height: 44px; flex: 0 0 auto; image-rendering: pixelated; }
@@ -33,7 +34,10 @@
 .computer-window { top: 88px; left: 250px; width: 620px; height: 430px; }
 .control-panel-window { top: 140px; left: 280px; width: 420px; height: 300px; }
 .help-window { top: 160px; left: 320px; width: 420px; height: 300px; }
-body.sqs-edit-mode .content-window, body.sqs-style-mode .content-window { display: block !important; visibility: visible !important; z-index: 9999 !important; }
+body.sqs-edit-mode, body.sqs-style-mode { overflow: auto !important; }
+body.sqs-edit-mode .windows98-desktop, body.sqs-style-mode .windows98-desktop { min-height: 140vh; overflow: visible !important; padding-bottom: 120px; }
+body.sqs-edit-mode .content-window, body.sqs-style-mode .content-window { display: block !important; visibility: visible !important; z-index: 9999 !important; height: auto !important; min-height: 760px; }
+body.sqs-edit-mode .content-window .window-body, body.sqs-style-mode .content-window .window-body { height: auto !important; min-height: 640px; overflow: visible !important; }
 body.sqs-edit-mode .welcome-window, body.sqs-style-mode .welcome-window { z-index: 10 !important; }
 .windows98-body .window { min-width: 260px; min-height: 170px; }
 .windows98-body .window.maximized .resize-handle { display: none; }
