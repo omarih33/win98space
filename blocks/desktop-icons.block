@@ -1,0 +1,9 @@
+{.section items}
+  {.repeated section @}
+    <a href="{fullUrl}" class="desktop-icon desktop-page-icon" data-page-url="{fullUrl}">
+      <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
+      <span>{navigationTitle}</span>
+    </a>
+  {.end}
+{.or}
+{.end}
