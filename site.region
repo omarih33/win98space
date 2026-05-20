@@ -9,38 +9,84 @@
 
   <body id="{squarespace.page-id}" class="{squarespace.page-classes} desktop windows98-body">
     <div id="desktop" class="windows98-desktop">
-      <div class="desktop-icons-container">
+      <div class="desktop-icons-container" aria-label="Desktop icons">
+        <button class="desktop-icon" type="button" data-window="welcome-window">
+          <span class="desktop-icon-glyph desktop-icon-glyph--welcome">★</span>
+          <span>Welcome.exe</span>
+        </button>
+
         <button class="desktop-icon" type="button" data-window="content-window">
-          <span class="desktop-icon-glyph">▣</span>
-          <span>Website</span>
+          <span class="desktop-icon-glyph desktop-icon-glyph--site">▣</span>
+          <span>Website.exe</span>
         </button>
 
         <button class="desktop-icon" type="button" data-window="about-window">
-          <span class="desktop-icon-glyph">▤</span>
+          <span class="desktop-icon-glyph desktop-icon-glyph--about">▤</span>
           <span>About.txt</span>
         </button>
 
         <button class="desktop-icon" type="button" data-window="computer-window">
-          <span class="desktop-icon-glyph">▥</span>
+          <span class="desktop-icon-glyph desktop-icon-glyph--computer">▥</span>
           <span>My Computer</span>
         </button>
 
+        <button class="desktop-icon" type="button" data-window="control-panel-window">
+          <span class="desktop-icon-glyph desktop-icon-glyph--settings">⚙</span>
+          <span>Control Panel</span>
+        </button>
+
+        <button class="desktop-icon" type="button" data-window="help-window">
+          <span class="desktop-icon-glyph desktop-icon-glyph--help">?</span>
+          <span>Help</span>
+        </button>
+      </div>
+
+      <div class="recycle-container">
         <button class="desktop-icon recycle-bin" type="button" data-action="recycle-bin">
-          <span class="desktop-icon-glyph">♲</span>
+          <span class="desktop-icon-glyph desktop-icon-glyph--trash">♲</span>
           <span>Recycle Bin</span>
         </button>
       </div>
 
-      <section class="window active" id="content-window" aria-label="Content">
+      <section class="window active welcome-window" id="welcome-window" aria-label="Welcome">
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">▣ {website.siteTitle}</div>
+          <div class="title-bar-text window-title">★ Welcome</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content welcome-content">
+          <div class="dialog-row">
+            <span class="dialog-icon" aria-hidden="true">▦</span>
+            <div>
+              <p><strong>Welcome to {website.siteTitle}.</strong></p>
+              <p>This site is running in Squarespace 98 mode. Double-click the desktop icons or use the Start menu to move around.</p>
+            </div>
+          </div>
+          <div class="dialog-actions">
+            <button type="button" data-window="content-window">Open Website</button>
+            <button type="button" data-action="close-parent">OK</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window content-window" id="content-window" aria-label="Content" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">▣ {website.siteTitle} - Internet Explorer</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Maximize" data-action="maximize"></button>
             <button aria-label="Close" data-action="close"></button>
           </div>
         </div>
-        <div class="window-body window-content">
+        <div class="window-body window-content browser-window-body">
+          <div class="browser-toolbar">
+            <button type="button" data-window="welcome-window">Back</button>
+            <button type="button" data-window="content-window">Home</button>
+            <button type="button" data-window="help-window">Help</button>
+            <label class="address-bar">Address: <input type="text" value="https://{website.siteTitle}/" readonly></label>
+          </div>
           <nav class="menu-bar">
             <squarespace:navigation navigationId="siteNav" template="nav" />
           </nav>
@@ -49,29 +95,30 @@
           </main>
         </div>
         <div class="status-bar">
-          <p class="status-bar-field">Ready</p>
-          <p class="status-bar-field">{website.siteTitle}</p>
+          <p class="status-bar-field">Done</p>
+          <p class="status-bar-field">Local intranet</p>
           <p class="status-bar-field" id="status-time">--:--</p>
         </div>
       </section>
 
-      <section class="window" id="about-window" aria-label="About" hidden>
+      <section class="window about-window" id="about-window" aria-label="About" hidden>
         <div class="title-bar window-header">
           <div class="title-bar-text window-title">▤ About.txt - Notepad</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Maximize" data-action="maximize"></button>
             <button aria-label="Close" data-action="close"></button>
           </div>
         </div>
         <div class="window-body window-content notepad-content">
-          <div class="notepad-toolbar">File&nbsp;&nbsp; Edit&nbsp;&nbsp; View&nbsp;&nbsp; Help</div>
+          <div class="notepad-toolbar">File&nbsp;&nbsp; Edit&nbsp;&nbsp; Search&nbsp;&nbsp; Help</div>
           <div class="notepad-text">
             <squarespace:block-field id="aboutContent" columns="1" />
           </div>
         </div>
       </section>
 
-      <section class="window" id="computer-window" aria-label="My Computer" hidden>
+      <section class="window computer-window" id="computer-window" aria-label="My Computer" hidden>
         <div class="title-bar window-header">
           <div class="title-bar-text window-title">▥ My Computer</div>
           <div class="title-bar-controls window-controls">
@@ -82,31 +129,77 @@
         </div>
         <div class="window-body window-content">
           <div class="computer-toolbar">
-            <button type="button">Back</button>
+            <button type="button" data-window="welcome-window">Back</button>
             <button type="button">Up</button>
             <label class="address-bar">Address: <input type="text" value="My Computer" readonly></label>
           </div>
           <div class="computer-drives">
             <button class="drive-item" type="button" data-window="content-window"><span>▣</span> Website (C:)</button>
             <button class="drive-item" type="button" data-window="about-window"><span>▤</span> About (D:)</button>
+            <button class="drive-item" type="button" data-window="control-panel-window"><span>⚙</span> Control Panel</button>
+            <button class="drive-item" type="button" data-window="help-window"><span>?</span> Help</button>
             <button class="drive-item" type="button" data-action="bsod"><span>▧</span> System (A:)</button>
           </div>
+        </div>
+      </section>
+
+      <section class="window control-panel-window" id="control-panel-window" aria-label="Control Panel" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">⚙ Control Panel</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content">
+          <div class="control-panel-grid">
+            <button type="button" data-theme="default"><span>▦</span> Classic Teal</button>
+            <button type="button" data-theme="night"><span>◐</span> Night Mode</button>
+            <button type="button" data-theme="rose"><span>◆</span> Rose Gold</button>
+            <button type="button" data-theme="galaxy"><span>✦</span> Galaxy</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="window help-window" id="help-window" aria-label="Help" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">? Windows Help</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content help-content">
+          <h3>How to use this site</h3>
+          <ul>
+            <li>Double-click icons to open windows.</li>
+            <li>Drag title bars to move windows.</li>
+            <li>Use the Start menu for shortcuts.</li>
+            <li>Try Shut Down if you want the blue screen.</li>
+          </ul>
         </div>
       </section>
     </div>
 
     <div id="taskbar" class="taskbar startbar">
-      <button id="start-button" class="startbutton-off" type="button" aria-expanded="false">Start</button>
+      <button id="start-button" class="startbutton-off" type="button" aria-expanded="false"><span class="start-mark">▦</span><b>Start</b></button>
       <div id="taskbar-programs" aria-label="Open windows"></div>
-      <div id="clock" class="time">--:--</div>
+      <div id="clock" class="time"><span class="tray-dot">◉</span><span id="time-display">--:--</span></div>
     </div>
 
     <nav id="start-menu" class="start-menu" hidden aria-label="Start menu">
-      <div class="menu-sidebar"><div class="headline">Windows 98</div></div>
+      <div class="menu-sidebar"><div class="headline"><strong>Windows</strong> 98</div></div>
       <ul class="menu-content">
-        <li class="item" data-window="content-window">Open Website</li>
-        <li class="item" data-window="about-window">About</li>
+        <li class="item folder">Programs
+          <ul class="menu-content">
+            <li class="item" data-window="content-window">Internet Explorer</li>
+            <li class="item" data-window="about-window">Notepad</li>
+            <li class="item" data-window="control-panel-window">Control Panel</li>
+          </ul>
+        </li>
+        <li class="item" data-window="welcome-window">Welcome</li>
         <li class="item" data-window="computer-window">My Computer</li>
+        <li class="item" data-window="help-window">Help</li>
         <li class="divider"></li>
         <li class="item" data-action="bsod">Shut Down...</li>
       </ul>
