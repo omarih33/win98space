@@ -1,89 +1,130 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Windows 98 UI</title>
-    
-    <!-- Squarespace Headers -->
+<!doctype html>
+<html class="touch-styles" lang="{website.language}">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     {squarespace-headers}
-    
-    <!-- Windows 98 Styles -->
     <link rel="stylesheet" href="https://unpkg.com/98.css">
-    <link rel="stylesheet" href="/assets/windows.css">
-    
-    <!-- jQuery for Dragging Windows -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-</head>
-<body id="{squarespace.page-id}" class="desktop">
-    
-    <!-- Windows 98 Desktop -->
-    <div id="desktop">
-        
-        <!-- Example Desktop Icons -->
-        <div class="desktop-icon" ondblclick="openWindow('content-window')">
-            <img src="/assets/my-computer.png" alt="My Computer">
-            <p>My Computer</p>
+  </head>
+
+  <body id="{squarespace.page-id}" class="{squarespace.page-classes} desktop windows98-body">
+    <div id="desktop" class="windows98-desktop">
+      <div class="desktop-icons-container">
+        <button class="desktop-icon" type="button" data-window="content-window">
+          <span class="desktop-icon-glyph">▣</span>
+          <span>Website</span>
+        </button>
+
+        <button class="desktop-icon" type="button" data-window="about-window">
+          <span class="desktop-icon-glyph">▤</span>
+          <span>About.txt</span>
+        </button>
+
+        <button class="desktop-icon" type="button" data-window="computer-window">
+          <span class="desktop-icon-glyph">▥</span>
+          <span>My Computer</span>
+        </button>
+
+        <button class="desktop-icon recycle-bin" type="button" data-action="recycle-bin">
+          <span class="desktop-icon-glyph">♲</span>
+          <span>Recycle Bin</span>
+        </button>
+      </div>
+
+      <section class="window active" id="content-window" aria-label="Content">
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">▣ {website.siteTitle}</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Maximize" data-action="maximize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
         </div>
-        
-        <div class="desktop-icon" ondblclick="openWindow('about-window')">
-            <img src="/assets/info.png" alt="About">
-            <p>About</p>
+        <div class="window-body window-content">
+          <nav class="menu-bar">
+            <squarespace:navigation navigationId="siteNav" template="nav" />
+          </nav>
+          <main class="content-area" role="main" data-content-field="main-content">
+            {squarespace.main-content}
+          </main>
         </div>
-        
-        <!-- Squarespace Content Window -->
-        <div class="window" id="content-window" style="display: none; top: 50px; left: 100px;">
-            <div class="title-bar">
-                <div class="title-bar-text">Content</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" onclick="closeWindow('content-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                {squarespace.main-content}
-            </div>
+        <div class="status-bar">
+          <p class="status-bar-field">Ready</p>
+          <p class="status-bar-field">{website.siteTitle}</p>
+          <p class="status-bar-field" id="status-time">--:--</p>
         </div>
-        
-        <!-- Example About Window -->
-        <div class="window" id="about-window" style="display: none; top: 100px; left: 200px;">
-            <div class="title-bar">
-                <div class="title-bar-text">About</div>
-                <div class="title-bar-controls">
-                    <button aria-label="Close" onclick="closeWindow('about-window')"></button>
-                </div>
-            </div>
-            <div class="window-body">
-                <p>Welcome to my Windows 98-themed site!</p>
-            </div>
+      </section>
+
+      <section class="window" id="about-window" aria-label="About" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">▤ About.txt - Notepad</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
         </div>
+        <div class="window-body window-content notepad-content">
+          <div class="notepad-toolbar">File&nbsp;&nbsp; Edit&nbsp;&nbsp; View&nbsp;&nbsp; Help</div>
+          <div class="notepad-text">
+            <squarespace:block-field id="aboutContent" columns="1" />
+          </div>
+        </div>
+      </section>
+
+      <section class="window" id="computer-window" aria-label="My Computer" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title">▥ My Computer</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Maximize" data-action="maximize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content">
+          <div class="computer-toolbar">
+            <button type="button">Back</button>
+            <button type="button">Up</button>
+            <label class="address-bar">Address: <input type="text" value="My Computer" readonly></label>
+          </div>
+          <div class="computer-drives">
+            <button class="drive-item" type="button" data-window="content-window"><span>▣</span> Website (C:)</button>
+            <button class="drive-item" type="button" data-window="about-window"><span>▤</span> About (D:)</button>
+            <button class="drive-item" type="button" data-action="bsod"><span>▧</span> System (A:)</button>
+          </div>
+        </div>
+      </section>
     </div>
-    
-    <!-- Windows 98 Taskbar -->
-    <div id="taskbar">
-        <div id="start-button" onclick="toggleStartMenu()">Start</div>
-        <div id="start-menu" style="display: none;">
-            <ul>
-                <li ondblclick="openWindow('content-window')">Open Content</li>
-                <li ondblclick="openWindow('about-window')">About</li>
-            </ul>
-        </div>
-        <div id="clock">??:?? AM</div>
+
+    <div id="taskbar" class="taskbar startbar">
+      <button id="start-button" class="startbutton-off" type="button" aria-expanded="false">Start</button>
+      <div id="taskbar-programs" aria-label="Open windows"></div>
+      <div id="clock" class="time">--:--</div>
     </div>
-    
-    <!-- JavaScript for Interactions -->
-    <script>
-        function toggleStartMenu() {
-            var menu = document.getElementById('start-menu');
-            menu.style.display = (menu.style.display === 'none') ? 'block' : 'none';
-        }
-        
-        function openWindow(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-        
-        function closeWindow(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
-</body>
+
+    <nav id="start-menu" class="start-menu" hidden aria-label="Start menu">
+      <div class="menu-sidebar"><div class="headline">Windows 98</div></div>
+      <ul class="menu-content">
+        <li class="item" data-window="content-window">Open Website</li>
+        <li class="item" data-window="about-window">About</li>
+        <li class="item" data-window="computer-window">My Computer</li>
+        <li class="divider"></li>
+        <li class="item" data-action="bsod">Shut Down...</li>
+      </ul>
+    </nav>
+
+    <div id="bsod" class="bsod" hidden tabindex="-1">
+      <div class="bsod-content">
+        <h1>A fatal exception 0E has occurred at 0028:C0011E36.</h1>
+        <p>The current application will be terminated.</p>
+        <br>
+        <p>* Press any key to return to the desktop.</p>
+        <p>* Press CTRL+ALT+DEL to restart your computer.</p>
+        <br>
+        <p>Press any key to continue _</p>
+      </div>
+    </div>
+
+    <squarespace:script src="windows98.js" combo="false" />
+    {squarespace-footers}
+  </body>
 </html>
