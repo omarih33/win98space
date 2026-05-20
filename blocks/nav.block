@@ -1,0 +1,6 @@
+{.section items}
+  <a href="{fullUrl}" class="nav-item{.equal? collection.id item.id} active{/equal?}">{navigationTitle}</a>
+{/section}
+{.or}
+  <span class="nav-item nav-empty">No pages</span>
+{/or}

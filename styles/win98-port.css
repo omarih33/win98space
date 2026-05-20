@@ -33,6 +33,8 @@
 .computer-window { top: 88px; left: 250px; width: 620px; height: 430px; }
 .control-panel-window { top: 140px; left: 280px; width: 420px; height: 300px; }
 .help-window { top: 160px; left: 320px; width: 420px; height: 300px; }
+body.sqs-edit-mode .content-window, body.sqs-style-mode .content-window { display: block !important; visibility: visible !important; z-index: 9999 !important; }
+body.sqs-edit-mode .welcome-window, body.sqs-style-mode .welcome-window { z-index: 10 !important; }
 .windows98-body .window { min-width: 260px; min-height: 170px; }
 .windows98-body .window.maximized .resize-handle { display: none; }
 .resize-handle { position: absolute; right: 3px; bottom: 3px; width: 14px; height: 14px; cursor: nwse-resize; background: repeating-linear-gradient(135deg, transparent 0 3px, #808080 3px 4px, #fff 4px 5px); z-index: 5; }
