@@ -3,6 +3,7 @@
   var openWindows = {};
   var zIndex = 100;
   var dragState = null;
+  var resizeState = null;
   var clickTimer = null;
 
   function ready(callback) {
@@ -25,11 +26,13 @@
     bindControls();
     bindStartMenu();
     bindDragging();
+    bindResizing();
     bindBsod();
     bindThemes();
     updateClock();
     setInterval(updateClock, 1000);
     updateTaskbar();
+    ensureResizeHandles();
   });
 
   function bindOpeners() {
@@ -150,6 +153,58 @@
 
     document.addEventListener('mouseup', function () {
       dragState = null;
+    });
+  }
+
+  function ensureResizeHandles() {
+    var windows = document.querySelectorAll('.window');
+    Array.prototype.forEach.call(windows, function (win) {
+      if (win.querySelector('.resize-handle')) return;
+      var handle = document.createElement('div');
+      handle.className = 'resize-handle';
+      handle.setAttribute('aria-hidden', 'true');
+      win.appendChild(handle);
+    });
+  }
+
+  function bindResizing() {
+    document.addEventListener('mousedown', function (event) {
+      var handle = event.target.closest('.resize-handle');
+      if (!handle) return;
+
+      var win = handle.closest('.window');
+      if (!win || win.classList.contains('maximized')) return;
+
+      var rect = win.getBoundingClientRect();
+      resizeState = {
+        win: win,
+        startX: event.clientX,
+        startY: event.clientY,
+        startWidth: rect.width,
+        startHeight: rect.height
+      };
+
+      bringToFront(win);
+      event.preventDefault();
+      event.stopPropagation();
+    });
+
+    document.addEventListener('mousemove', function (event) {
+      if (!resizeState) return;
+
+      var minWidth = 260;
+      var minHeight = 170;
+      var maxWidth = window.innerWidth - resizeState.win.getBoundingClientRect().left;
+      var maxHeight = window.innerHeight - resizeState.win.getBoundingClientRect().top - 40;
+      var nextWidth = resizeState.startWidth + (event.clientX - resizeState.startX);
+      var nextHeight = resizeState.startHeight + (event.clientY - resizeState.startY);
+
+      resizeState.win.style.width = Math.max(minWidth, Math.min(maxWidth, nextWidth)) + 'px';
+      resizeState.win.style.height = Math.max(minHeight, Math.min(maxHeight, nextHeight)) + 'px';
+    });
+
+    document.addEventListener('mouseup', function () {
+      resizeState = null;
     });
   }
 
