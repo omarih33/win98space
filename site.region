@@ -11,22 +11,22 @@
     <div id="desktop" class="windows98-desktop">
       <div class="desktop-icons-container" aria-label="Desktop icons">
         <button class="desktop-icon" type="button" data-window="welcome-window">
-          <span class="desktop-icon-glyph desktop-icon-glyph--welcome">★</span>
+          <img class="desktop-icon-img" src="/assets/icons/win98-document.svg" alt="">
           <span>Welcome.exe</span>
         </button>
 
         <button class="desktop-icon" type="button" data-window="content-window">
-          <span class="desktop-icon-glyph desktop-icon-glyph--site">▣</span>
+          <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
           <span>Website.exe</span>
         </button>
 
         <button class="desktop-icon" type="button" data-window="about-window">
-          <span class="desktop-icon-glyph desktop-icon-glyph--about">▤</span>
+          <img class="desktop-icon-img" src="/assets/icons/win98-document.svg" alt="">
           <span>About.txt</span>
         </button>
 
         <button class="desktop-icon" type="button" data-window="computer-window">
-          <span class="desktop-icon-glyph desktop-icon-glyph--computer">▥</span>
+          <img class="desktop-icon-img" src="/assets/icons/win98-computer.svg" alt="">
           <span>My Computer</span>
         </button>
 
@@ -36,7 +36,7 @@
         </button>
 
         <button class="desktop-icon" type="button" data-window="help-window">
-          <span class="desktop-icon-glyph desktop-icon-glyph--help">?</span>
+          <img class="desktop-icon-img" src="/assets/icons/win98-help.svg" alt="">
           <span>Help</span>
         </button>
       </div>
@@ -50,7 +50,7 @@
 
       <section class="window active welcome-window" id="welcome-window" aria-label="Welcome">
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">★ Welcome</div>
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-document.svg" alt=""> Welcome</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Close" data-action="close"></button>
@@ -58,7 +58,7 @@
         </div>
         <div class="window-body window-content welcome-content">
           <div class="dialog-row">
-            <span class="dialog-icon" aria-hidden="true">▦</span>
+            <img class="dialog-icon-img" src="/assets/icons/win98-computer.svg" alt="">
             <div>
               <p><strong>Welcome to {website.siteTitle}.</strong></p>
               <p>This site is running in Squarespace 98 mode. Double-click the desktop icons or use the Start menu to move around.</p>
@@ -73,7 +73,7 @@
 
       <section class="window content-window" id="content-window" aria-label="Content" hidden>
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">▣ {website.siteTitle} - Internet Explorer</div>
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-folder.svg" alt=""> {website.siteTitle} - Internet Explorer</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Maximize" data-action="maximize"></button>
@@ -103,7 +103,7 @@
 
       <section class="window about-window" id="about-window" aria-label="About" hidden>
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">▤ About.txt - Notepad</div>
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-document.svg" alt=""> About.txt - Notepad</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Maximize" data-action="maximize"></button>
@@ -120,7 +120,7 @@
 
       <section class="window computer-window" id="computer-window" aria-label="My Computer" hidden>
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">▥ My Computer</div>
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-computer.svg" alt=""> My Computer</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Maximize" data-action="maximize"></button>
@@ -134,10 +134,10 @@
             <label class="address-bar">Address: <input type="text" value="My Computer" readonly></label>
           </div>
           <div class="computer-drives">
-            <button class="drive-item" type="button" data-window="content-window"><span>▣</span> Website (C:)</button>
-            <button class="drive-item" type="button" data-window="about-window"><span>▤</span> About (D:)</button>
+            <button class="drive-item" type="button" data-window="content-window"><img src="/assets/icons/win98-folder.svg" alt=""> Website (C:)</button>
+            <button class="drive-item" type="button" data-window="about-window"><img src="/assets/icons/win98-document.svg" alt=""> About (D:)</button>
             <button class="drive-item" type="button" data-window="control-panel-window"><span>⚙</span> Control Panel</button>
-            <button class="drive-item" type="button" data-window="help-window"><span>?</span> Help</button>
+            <button class="drive-item" type="button" data-window="help-window"><img src="/assets/icons/win98-help.svg" alt=""> Help</button>
             <button class="drive-item" type="button" data-action="bsod"><span>▧</span> System (A:)</button>
           </div>
         </div>
@@ -163,7 +163,7 @@
 
       <section class="window help-window" id="help-window" aria-label="Help" hidden>
         <div class="title-bar window-header">
-          <div class="title-bar-text window-title">? Windows Help</div>
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-help.svg" alt=""> Windows Help</div>
           <div class="title-bar-controls window-controls">
             <button aria-label="Minimize" data-action="minimize"></button>
             <button aria-label="Close" data-action="close"></button>
@@ -190,18 +190,36 @@
     <nav id="start-menu" class="start-menu" hidden aria-label="Start menu">
       <div class="menu-sidebar"><div class="headline"><strong>Windows</strong> 98</div></div>
       <ul class="menu-content">
-        <li class="item folder">Programs
+        <li class="item folder"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt=""><em>P</em>rograms
           <ul class="menu-content">
-            <li class="item" data-window="content-window">Internet Explorer</li>
-            <li class="item" data-window="about-window">Notepad</li>
-            <li class="item" data-window="control-panel-window">Control Panel</li>
+            <li class="item folder"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Accessories
+              <ul class="menu-content">
+                <li class="item" data-window="about-window"><img class="menu-icon" src="/assets/icons/win98-document.svg" alt="">Notepad</li>
+                <li class="item" data-window="help-window"><img class="menu-icon" src="/assets/icons/win98-help.svg" alt="">Help</li>
+              </ul>
+            </li>
+            <li class="item" data-window="content-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Internet Explorer</li>
+            <li class="item" data-window="control-panel-window"><span class="menu-glyph">⚙</span>Control Panel</li>
           </ul>
         </li>
-        <li class="item" data-window="welcome-window">Welcome</li>
-        <li class="item" data-window="computer-window">My Computer</li>
-        <li class="item" data-window="help-window">Help</li>
+        <li class="item folder"><img class="menu-icon" src="/assets/icons/win98-document.svg" alt=""><em>D</em>ocuments
+          <ul class="menu-content">
+            <li class="item" data-window="content-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Website</li>
+            <li class="item" data-window="about-window"><img class="menu-icon" src="/assets/icons/win98-document.svg" alt="">About.txt</li>
+          </ul>
+        </li>
+        <li class="item folder"><span class="menu-glyph">⚙</span><em>S</em>ettings
+          <ul class="menu-content">
+            <li class="item" data-window="control-panel-window"><span class="menu-glyph">⚙</span>Control Panel</li>
+            <li class="item" data-theme="default"><span class="menu-glyph">▦</span>Classic Teal</li>
+            <li class="item" data-theme="night"><span class="menu-glyph">◐</span>Night Mode</li>
+          </ul>
+        </li>
+        <li class="item" data-window="computer-window"><img class="menu-icon" src="/assets/icons/win98-computer.svg" alt="">My Computer</li>
+        <li class="item" data-window="help-window"><img class="menu-icon" src="/assets/icons/win98-help.svg" alt="">Help</li>
+        <li class="item" data-action="recycle-bin"><span class="menu-glyph">♲</span>Recycle Bin</li>
         <li class="divider"></li>
-        <li class="item" data-action="bsod">Shut Down...</li>
+        <li class="item" data-action="bsod"><span class="menu-glyph">⏻</span>Shut Down...</li>
       </ul>
     </nav>
 
