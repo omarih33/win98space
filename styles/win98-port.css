@@ -1,0 +1,76 @@
+/* Win98 desktop polish for Squarespace 7.0 */
+.windows98-body {
+  --desktop-bg: #008080;
+  --window-bg: #c0c0c0;
+  --win-blue: #000080;
+  --win-blue-light: #1084d0;
+  margin: 0;
+  background: var(--desktop-bg);
+  font-family: "Pixelated MS Sans Serif", "MS Sans Serif", Tahoma, Arial, sans-serif;
+}
+.windows98-body.theme-night { --desktop-bg: #0b1026; --win-blue: #050050; --win-blue-light: #6d39c7; }
+.windows98-body.theme-rose { --desktop-bg: #9f6f6f; --win-blue: #8b3d3d; --win-blue-light: #d0a610; }
+.windows98-body.theme-galaxy { --desktop-bg: #16123b; --win-blue: #000055; --win-blue-light: #b46caa; }
+.windows98-desktop {
+  background: radial-gradient(circle at 65% 25%, rgba(255,255,255,.08), transparent 20%), var(--desktop-bg);
+}
+.desktop-icons-container { grid-template-columns: 86px; align-content: start; }
+.recycle-container { position: absolute; right: 22px; bottom: 24px; z-index: 20; }
+.windows98-body .desktop-icon { line-height: 1.1; user-select: none; }
+.windows98-body .desktop-icon.selected,
+.windows98-body .desktop-icon:focus-visible {
+  background: rgba(0,0,128,.5);
+  border-color: rgba(255,255,255,.7);
+  outline: 1px dotted #fff;
+}
+.desktop-icon-glyph--welcome { color: #b36b00; }
+.desktop-icon-glyph--site { color: #000080; }
+.desktop-icon-glyph--computer { color: #245ddb; }
+.desktop-icon-glyph--settings { color: #555; }
+.desktop-icon-glyph--help { color: #008000; }
+.welcome-window { top: 70px; left: 230px; width: 420px; }
+.content-window { top: 52px; left: 140px; width: min(900px, calc(100vw - 190px)); height: min(660px, calc(100vh - 105px)); }
+.about-window { top: 112px; left: 210px; width: min(620px, calc(100vw - 240px)); height: 420px; }
+.computer-window { top: 88px; left: 250px; width: 580px; height: 390px; }
+.control-panel-window { top: 140px; left: 280px; width: 420px; height: 300px; }
+.help-window { top: 160px; left: 320px; width: 420px; height: 300px; }
+.windows98-body .title-bar { background: linear-gradient(90deg, var(--win-blue), var(--win-blue-light)); }
+.windows98-body .title-bar.inactive-title-bar { background: linear-gradient(90deg, #808080, #b5b5b5); }
+.dialog-row { display: flex; gap: 18px; align-items: flex-start; }
+.dialog-icon {
+  width: 44px; height: 44px; display: grid; place-items: center; flex: 0 0 auto;
+  background: #fff; border: 2px inset #c0c0c0; color: var(--win-blue); font-size: 28px;
+}
+.dialog-actions { display: flex; justify-content: center; gap: 8px; margin-top: 18px; }
+.browser-toolbar, .computer-toolbar { padding: 4px; border-bottom: 1px solid #808080; box-shadow: 0 1px #fff; }
+.browser-toolbar button, .computer-toolbar button, .dialog-actions button, .control-panel-grid button { min-width: 72px; }
+.menu-bar { padding: 4px 6px; border-bottom: 1px solid #808080; box-shadow: 0 1px #fff; }
+.menu-bar a { padding: 3px 7px; }
+.menu-bar a:hover { color: #fff; background: var(--win-blue); }
+.control-panel-grid { display: grid; grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 14px; padding: 14px; }
+.control-panel-grid button, .drive-item { min-height: 78px; }
+.control-panel-grid button span, .drive-item span { display: block; font-size: 28px; margin-bottom: 6px; }
+.help-content ul { margin: 12px 0 0 20px; padding: 0; }
+.help-content li { margin-bottom: 8px; }
+.startbar { gap: 5px; }
+#start-button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; width: 76px; text-align: center; }
+.start-mark { display: inline-grid; place-items: center; width: 16px; height: 16px; color: #fff; background: var(--win-blue); }
+#clock.time { width: auto; min-width: 116px; gap: 8px; }
+.tray-dot { color: #008000; }
+#start-menu { width: 210px; }
+#start-menu .menu-content { margin-left: 25px; }
+#start-menu > .menu-content { width: 183px; }
+#start-menu .item { position: relative; }
+#start-menu .item.folder > .menu-content {
+  display: none; position: absolute; left: 165px; top: -4px; margin-left: 0; width: 180px;
+  background: #bfbfbf; border: 1px solid; border-top-color: #dfdfdf; border-left-color: #dfdfdf;
+  border-right-color: #808080; border-bottom-color: #808080; box-shadow: 1px 1px 0 0 #000;
+}
+#start-menu .item.folder:hover > .menu-content { display: block; }
+#taskbar-programs .program { max-width: 175px; }
+@media screen and (max-width: 760px) {
+  .recycle-container { position: static; }
+  .welcome-window, .content-window, .about-window, .computer-window, .control-panel-window, .help-window { width: 100%; height: auto; }
+  .control-panel-grid, .computer-drives { grid-template-columns: 1fr; }
+  #start-menu .item.folder > .menu-content { left: 120px; }
+}
