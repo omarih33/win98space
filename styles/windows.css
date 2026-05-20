@@ -235,4 +235,276 @@
   #steam-help-list a {
     color: #00f;
   }
+
+/* Active Squarespace shell repair */
+.windows98-body {
+  margin: 0;
+  font-family: "Pixelated MS Sans Serif", "MS Sans Serif", Tahoma, Arial, sans-serif;
+}
+
+.windows98-desktop {
+  position: relative;
+  width: 100vw;
+  height: calc(100vh - 40px);
+  overflow: hidden;
+}
+
+.desktop-icons-container {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  z-index: 20;
+  display: grid;
+  gap: 14px;
+}
+
+.windows98-body .desktop-icon {
+  width: 80px;
+  min-height: 72px;
+  padding: 4px;
+  margin: 0;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #fff;
+  text-shadow: 1px 1px #000;
+  cursor: default;
+}
+
+.windows98-body .desktop-icon:hover,
+.windows98-body .desktop-icon:focus {
+  background: rgba(0, 0, 128, 0.35);
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.desktop-icon-glyph {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 5px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  color: #000080;
+  border: 1px solid #000;
+  box-shadow: inset -2px -2px #808080, inset 2px 2px #dfdfdf;
+  font-size: 20px;
+}
+
+.windows98-body .window {
+  position: absolute;
+  min-width: 280px;
+  min-height: 160px;
+  z-index: 100;
+}
+
+.windows98-body .window[hidden],
+.windows98-body #start-menu[hidden],
+.windows98-body #bsod[hidden] {
+  display: none !important;
+}
+
+#content-window {
+  top: 50px;
+  left: 130px;
+  width: min(860px, calc(100vw - 170px));
+  height: min(640px, calc(100vh - 95px));
+}
+
+#about-window {
+  top: 95px;
+  left: 190px;
+  width: min(560px, calc(100vw - 230px));
+  height: 380px;
+}
+
+#computer-window {
+  top: 80px;
+  left: 220px;
+  width: 520px;
+  height: 360px;
+}
+
+.windows98-body .window.maximized {
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: calc(100vh - 40px) !important;
+}
+
+.windows98-body .window-body {
+  height: calc(100% - 45px);
+  overflow: auto;
+}
+
+.windows98-body .menu-bar {
+  margin-bottom: 8px;
+  min-height: 24px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.windows98-body .menu-bar a {
+  color: #000;
+  text-decoration: none;
+}
+
+.windows98-body .content-area,
+.notepad-text {
+  min-height: 250px;
+  padding: 10px;
+  background: #fff;
+  color: #000;
+  border: 2px inset #c0c0c0;
+}
+
+.windows98-body .status-bar {
+  display: flex;
+  gap: 4px;
+  padding: 2px 4px 4px;
+}
+
+.windows98-body .status-bar-field {
+  margin: 0;
+  min-height: 18px;
+}
+
+.notepad-toolbar {
+  margin: -4px -4px 8px;
+  padding: 3px 6px;
+  border-bottom: 1px solid #808080;
+}
+
+.computer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.address-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex: 1;
+}
+
+.address-bar input {
+  width: 100%;
+}
+
+.computer-drives {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  min-height: 220px;
+  padding: 12px;
+  background: #fff;
+  border: 2px inset #c0c0c0;
+}
+
+.drive-item {
+  min-height: 76px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #fff;
+  border: 1px solid transparent;
+}
+
+.drive-item:hover,
+.drive-item:focus {
+  background: #000080;
+  color: #fff;
+}
+
+.windows98-body #taskbar {
+  z-index: 1200;
+}
+
+#taskbar-programs {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-width: 0;
+}
+
+#taskbar-programs .program {
+  background: silver;
+  font-family: inherit;
+  font-size: 11px;
+  text-align: left;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#start-menu {
+  display: none;
+  position: fixed;
+  left: 4px;
+  bottom: 40px;
+  z-index: 1300;
+}
+
+#start-menu .item {
+  cursor: default;
+}
+
+.bsod {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  padding: 40px;
+  background: #0000aa;
+  color: #fff;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.bsod h1 {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+@media screen and (max-width: 760px) {
+  .desktop {
+    position: static;
+    min-height: 100vh;
+    height: auto;
+    overflow: auto;
+  }
+
+  .windows98-desktop {
+    min-height: calc(100vh - 40px);
+    height: auto;
+    overflow: visible;
+    padding: 95px 10px 20px;
+  }
+
+  .desktop-icons-container {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    overflow-x: auto;
+  }
+
+  #content-window,
+  #about-window,
+  #computer-window,
+  .windows98-body .window {
+    position: relative;
+    top: auto;
+    left: auto;
+    width: 100%;
+    height: auto;
+    margin-bottom: 14px;
+  }
+
+  .windows98-body .window-body {
+    height: auto;
+  }
+}
   
