@@ -28,7 +28,9 @@
 .welcome-window { top: 70px; left: 230px; width: 420px; }
 .content-window { top: 52px; left: 140px; width: min(900px, calc(100vw - 190px)); height: min(660px, calc(100vh - 105px)); }
 .about-window { top: 112px; left: 210px; width: min(620px, calc(100vw - 240px)); height: 420px; }
-.computer-window { top: 88px; left: 250px; width: 580px; height: 390px; }
+.blog-window { top: 96px; left: 190px; width: min(760px, calc(100vw - 230px)); height: 520px; }
+.gallery-window { top: 122px; left: 230px; width: min(800px, calc(100vw - 260px)); height: 540px; }
+.computer-window { top: 88px; left: 250px; width: 620px; height: 430px; }
 .control-panel-window { top: 140px; left: 280px; width: 420px; height: 300px; }
 .help-window { top: 160px; left: 320px; width: 420px; height: 300px; }
 .windows98-body .window { min-width: 260px; min-height: 170px; }
@@ -43,6 +45,12 @@
 .menu-bar { padding: 4px 6px; border-bottom: 1px solid #808080; box-shadow: 0 1px #fff; }
 .menu-bar a { padding: 3px 7px; }
 .menu-bar a:hover { color: #fff; background: var(--win-blue); }
+.folder-window-body { display: flex; flex-direction: column; gap: 8px; }
+.folder-intro { display: flex; align-items: flex-start; gap: 10px; padding: 8px; background: #fff; border: 2px inset #c0c0c0; }
+.folder-intro img { width: 32px; height: 32px; flex: 0 0 auto; image-rendering: pixelated; }
+.folder-intro p { margin: 4px 0 0; }
+.folder-content { flex: 1; min-height: 260px; padding: 10px; background: #fff; color: #000; border: 2px inset #c0c0c0; overflow: auto; }
+.gallery-folder-content .sqs-gallery, .gallery-folder-content .summary-block-wrapper { image-rendering: auto; }
 .control-panel-grid { display: grid; grid-template-columns: repeat(2, minmax(130px, 1fr)); gap: 14px; padding: 14px; }
 .control-panel-grid button, .drive-item { min-height: 78px; }
 .control-panel-grid button span, .drive-item span { display: block; font-size: 28px; margin-bottom: 6px; }
@@ -72,7 +80,7 @@
 #taskbar-programs .program { max-width: 175px; }
 @media screen and (max-width: 760px) {
   .recycle-container { position: static; }
-  .welcome-window, .content-window, .about-window, .computer-window, .control-panel-window, .help-window { width: 100%; height: auto; }
+  .welcome-window, .content-window, .about-window, .blog-window, .gallery-window, .computer-window, .control-panel-window, .help-window { width: 100%; height: auto; }
   .control-panel-grid, .computer-drives { grid-template-columns: 1fr; }
   #start-menu .item.folder > .menu-content { left: 120px; }
   .resize-handle { display: none; }

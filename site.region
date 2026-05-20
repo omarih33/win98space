@@ -25,6 +25,16 @@
           <span>About.txt</span>
         </button>
 
+        <button class="desktop-icon" type="button" data-window="blog-window">
+          <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
+          <span>Blog (D:)</span>
+        </button>
+
+        <button class="desktop-icon" type="button" data-window="gallery-window">
+          <img class="desktop-icon-img" src="/assets/icons/win98-folder.svg" alt="">
+          <span>Gallery (E:)</span>
+        </button>
+
         <button class="desktop-icon" type="button" data-window="computer-window">
           <img class="desktop-icon-img" src="/assets/icons/win98-computer.svg" alt="">
           <span>My Computer</span>
@@ -71,7 +81,7 @@
         </div>
       </section>
 
-      <section class="window content-window" id="content-window" aria-label="Content" hidden>
+      <section class="window content-window" id="content-window" aria-label="Content">
         <div class="title-bar window-header">
           <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-folder.svg" alt=""> {website.siteTitle} - Internet Explorer</div>
           <div class="title-bar-controls window-controls">
@@ -118,6 +128,64 @@
         </div>
       </section>
 
+      <section class="window folder-window blog-window" id="blog-window" aria-label="Blog" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-folder.svg" alt=""> Blog (D:) - Windows Explorer</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Maximize" data-action="maximize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content folder-window-body">
+          <div class="computer-toolbar">
+            <button type="button" data-window="computer-window">Back</button>
+            <button type="button">Up</button>
+            <label class="address-bar">Address: <input type="text" value="My Computer\Blog (D:)" readonly></label>
+          </div>
+          <div class="folder-intro">
+            <img src="/assets/icons/win98-folder.svg" alt="">
+            <div>
+              <strong>Blog (D:)</strong>
+              <p>Use this window for posts, field notes, essays, or updates. For now, add/edit content using the block field below.</p>
+            </div>
+          </div>
+          <div class="folder-content blog-folder-content">
+            <squarespace:block-field id="blogWindowContent" columns="12" />
+          </div>
+        </div>
+        <div class="status-bar"><p class="status-bar-field">Ready</p><p class="status-bar-field">Blog folder</p></div>
+      </section>
+
+      <section class="window folder-window gallery-window" id="gallery-window" aria-label="Gallery" hidden>
+        <div class="title-bar window-header">
+          <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-folder.svg" alt=""> Gallery (E:) - Windows Explorer</div>
+          <div class="title-bar-controls window-controls">
+            <button aria-label="Minimize" data-action="minimize"></button>
+            <button aria-label="Maximize" data-action="maximize"></button>
+            <button aria-label="Close" data-action="close"></button>
+          </div>
+        </div>
+        <div class="window-body window-content folder-window-body">
+          <div class="computer-toolbar">
+            <button type="button" data-window="computer-window">Back</button>
+            <button type="button">Up</button>
+            <label class="address-bar">Address: <input type="text" value="My Computer\Gallery (E:)" readonly></label>
+          </div>
+          <div class="folder-intro">
+            <img src="/assets/icons/win98-folder.svg" alt="">
+            <div>
+              <strong>Gallery (E:)</strong>
+              <p>Use this window for images, projects, screenshots, or portfolio pieces. Add a Gallery Block or image blocks below.</p>
+            </div>
+          </div>
+          <div class="folder-content gallery-folder-content">
+            <squarespace:block-field id="galleryWindowContent" columns="12" />
+          </div>
+        </div>
+        <div class="status-bar"><p class="status-bar-field">Ready</p><p class="status-bar-field">Gallery folder</p></div>
+      </section>
+
       <section class="window computer-window" id="computer-window" aria-label="My Computer" hidden>
         <div class="title-bar window-header">
           <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-computer.svg" alt=""> My Computer</div>
@@ -135,7 +203,9 @@
           </div>
           <div class="computer-drives">
             <button class="drive-item" type="button" data-window="content-window"><img src="/assets/icons/win98-folder.svg" alt=""> Website (C:)</button>
-            <button class="drive-item" type="button" data-window="about-window"><img src="/assets/icons/win98-document.svg" alt=""> About (D:)</button>
+            <button class="drive-item" type="button" data-window="blog-window"><img src="/assets/icons/win98-folder.svg" alt=""> Blog (D:)</button>
+            <button class="drive-item" type="button" data-window="gallery-window"><img src="/assets/icons/win98-folder.svg" alt=""> Gallery (E:)</button>
+            <button class="drive-item" type="button" data-window="about-window"><img src="/assets/icons/win98-document.svg" alt=""> About.txt</button>
             <button class="drive-item" type="button" data-window="control-panel-window"><span>⚙</span> Control Panel</button>
             <button class="drive-item" type="button" data-window="help-window"><img src="/assets/icons/win98-help.svg" alt=""> Help</button>
             <button class="drive-item" type="button" data-action="bsod"><span>▧</span> System (A:)</button>
@@ -174,7 +244,8 @@
           <ul>
             <li>Double-click icons to open windows.</li>
             <li>Drag title bars to move windows.</li>
-            <li>Use the Start menu for shortcuts.</li>
+            <li>Drag the bottom-right corner to resize windows.</li>
+            <li>Use Blog (D:) and Gallery (E:) as editable Squarespace content folders.</li>
             <li>Try Shut Down if you want the blue screen.</li>
           </ul>
         </div>
@@ -206,6 +277,8 @@
           <ul class="menu-content">
             <li class="item" data-window="content-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Website</li>
             <li class="item" data-window="about-window"><img class="menu-icon" src="/assets/icons/win98-document.svg" alt="">About.txt</li>
+            <li class="item" data-window="blog-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Blog (D:)</li>
+            <li class="item" data-window="gallery-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Gallery (E:)</li>
           </ul>
         </li>
         <li class="item folder"><span class="menu-glyph">⚙</span><em>S</em>ettings
@@ -216,6 +289,8 @@
           </ul>
         </li>
         <li class="item" data-window="computer-window"><img class="menu-icon" src="/assets/icons/win98-computer.svg" alt="">My Computer</li>
+        <li class="item" data-window="blog-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Blog</li>
+        <li class="item" data-window="gallery-window"><img class="menu-icon" src="/assets/icons/win98-folder.svg" alt="">Gallery</li>
         <li class="item" data-window="help-window"><img class="menu-icon" src="/assets/icons/win98-help.svg" alt="">Help</li>
         <li class="item" data-action="recycle-bin"><span class="menu-glyph">♲</span>Recycle Bin</li>
         <li class="divider"></li>
