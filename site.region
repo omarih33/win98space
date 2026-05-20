@@ -81,7 +81,7 @@
         </div>
       </section>
 
-      <section class="window content-window" id="content-window" aria-label="Content" hidden>
+      <section class="window content-window" id="content-window" aria-label="Content">
         <div class="title-bar window-header">
           <div class="title-bar-text window-title"><img class="title-icon" src="/assets/icons/win98-folder.svg" alt=""> {website.siteTitle} - Internet Explorer</div>
           <div class="title-bar-controls window-controls">
